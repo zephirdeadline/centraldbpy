@@ -1,0 +1,13 @@
+{% extends "admincentral_db/base_admin.html" %}
+
+{% block content_admin %}
+<div class="well well-lg">
+<div style="text-align: right; margin: auto; display: table; padding: 20px">
+    <form action="/admin/domain/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <input type="submit" value="Submit" />
+    </form>
+</div>
+    </div>
+{% endblock %}

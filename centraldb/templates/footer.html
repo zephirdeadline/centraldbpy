@@ -1,0 +1,67 @@
+{% block footer %}
+<!--footer start from here-->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-6 footerleft ">
+        <div class="logofooter"> CentralDB</div>
+        <p>CentralDB, agence de management interne d'établissement</p>
+        <p><i class="fa fa-map-pin"></i>10 rue du 14 juillet, 94270, Le Kremlin Bicêtre</p>
+        <p><i class="fa fa-phone"></i> Tel: +33 7 83 66 97 57</p>
+        <p><i class="fa fa-envelope"></i> E-mail : melvyn.petrocchi@epita.fr</p>
+
+      </div>
+      <div class="col-md-2 col-sm-6 paddingtop-bottom">
+        <h6 class="heading7">Liens générals</h6>
+        <ul class="footer-ul">
+          <li><a href="#"> Carrière</a></li>
+          <li><a href="#"> Politique de confidentialité</a></li>
+          <li><a href="#"> Termes & Conditions</a></li>
+          <li><a href="#"> Question: FAQ</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-6 paddingtop-bottom">
+        <h6 class="heading7">Modules disponible pour le Chateau des Vaux8.0</h6>
+        <div class="post" style="color:white;">
+          {% block modules_list %}
+          {% for m in modules_list %}
+          <li><a href='/{{ m.link_name }}'>{{ m.display_name }}</a></li>
+          {% endfor %}
+          {% endblock %}
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 paddingtop-bottom">
+        <div class="fb-page" data-href="https://www.facebook.com/facebook" data-tabs="timeline" data-height="300" data-small-header="false" style="margin-bottom:15px;" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+          <div class="fb-xfbml-parse-ignore">
+            <blockquote cite="https://www.facebook.com/facebook"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote>
+          </div>
+          <div class="fb-xfbml-parse-ignore">
+            <blockquote cite="https://www.facebook.com/facebook"><a href="https://www.facebook.com/facebook">Twitter</a></blockquote>
+          </div>
+          <div class="fb-xfbml-parse-ignore">
+            <blockquote cite="https://www.facebook.com/facebook"><a href="https://www.facebook.com/facebook">LinkedIn</a></blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!--footer start from here-->
+
+<div class="copyright">
+  <div class="container">
+    <div class="col-md-6">
+      <p>© 2017 - All Rights with CentralDB</p>
+    </div>
+    <div class="col-md-6">
+      <ul class="bottom_ul">
+        <li><a href="#">CentralDB.com</a></li>
+        <li><a href="#">A propos de nous</a></li>
+        <li><a href="#">Faq</a></li>
+        <li><a href="#">Nous contacter</a></li>
+        <li><a href="#">Plan du site</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}

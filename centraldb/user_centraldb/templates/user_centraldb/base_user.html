@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <nav class="navbar navbar-inverse">
+        <div class="navbar-header">
+
+
+            <a class="navbar-brand" href="/user/">Acceuil</a>
+            <a class="navbar-brand" href="/user/contact">Contact</a>
+
+        </div>
+        <ul class="nav navbar-nav navbar-right" style="margin-right:10px;">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> CentralDB<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/admin/?mod=">Les Factures</a></li>
+                    <li><a href="/admin/?mod=estimate_state">Etats des devis</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="/account/">Mon compte</a></li>
+                </ul>
+            </li>
+            <li><a href="/logout/">Déconnexion</a></li>
+        </ul>
+
+
+    </nav>
+
+    <!-- list of modules -->
+    <nav class="navbar navbar-inverse">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="#">Gérer vos modules:</a>
+            {% block modules_list %}
+                {% for m in modules_list %}
+                    <a class='navbar-brand' href='/{{ m.link_name }}/user'>{{ m.display_name }}</a>
+                {% endfor %}
+            {% endblock %}
+        </div>
+    </nav>
+    {% block content_user %}
+    {% endblock %}
+{% endblock %}

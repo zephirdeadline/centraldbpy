@@ -1,0 +1,63 @@
+{% extends 'user_centraldb/base_user.html' %}
+
+
+{% block content_user %}
+    <div class="container" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+
+        <form method="post" action="" >
+
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+
+
+                    <div class="thumbnail">
+                        <img src="/{{ meta_primary_image.path_image }}">
+                        <div class="caption">
+                            <h3>{{ place.display_name }}</h3>
+                            <h2>Max pers.: {{ place.max_member }}</h2>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                {% for s in second_images %}
+
+                {% endfor %}
+
+                <div class="col-sm-6 col-md-4">
+                    {% for o in meta_options %}
+                        <input type="checkbox" name="option{{ forloop.counter }}"> {{ o.display_name }} qté:<input type="number" name="qte{{ forloop.counter }}" value="1"> x{{ o.optionPrice }}€<br>
+                    {% endfor %}
+                    Prix à la journée: {{ place.price }} €<br>
+
+                   <div class="form-group col-lg-6">
+            <label class="control-label" for="date">Du</label>
+            <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" required/>
+          </div>
+
+          <div class="form-group col-lg-6">
+           <label class="control-label" for="date">au</label>
+           <input class="form-control" id="date2" name="date2" placeholder="MM/DD/YYY" type="text" required/>
+          </div>
+
+
+
+                <input type="submit" value="Louer!">
+                </div>
+
+
+
+
+                <div class="col-sm-6 col-md-4">
+                    {{ place.condition }}<br>
+                    <input type="checkbox" name="condition", required> J'accepte les conditions d'utilisation
+                </div>
+
+
+
+
+            </div>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "admincentral_db/base_admin.html" %}
+
+{% block contentadmin %}
+<div class="well well-lg">
+    <div style="text-align: right; margin: auto; display: table; padding: 20px">
+        <h1>Contacter {{ member_to.firstname }} {{ member_to.lastname }}</h1>
+        <form action="/admin/" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <input type="submit" value="Envoyer" />
+        </form>
+    </div>
+</div>
+
+{% endblock %}

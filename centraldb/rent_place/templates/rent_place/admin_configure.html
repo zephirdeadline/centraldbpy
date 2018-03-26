@@ -1,0 +1,59 @@
+{% extends 'admin_centraldb/base_admin.html' %}
+
+
+{% block content_admin %}
+<div class="well well-lg">
+    <div style="text-align: right; margin: auto; display: table; padding: 20px">
+       <ul class="nav nav-pills">
+            <li class="active"><a data-toggle="pill" href="#info">Informations générales</a></li>
+            <li><a data-toggle="pill" href="#images">Gerer les images</a></li>
+            <li><a data-toggle="pill" href="#add">Ajouter une option</a></li>
+            <li><a data-toggle="pill" href="#update">Modifier une option</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="info" class="tab-pane fade in active">
+                <h3>Information générales | {{ place_name }}</h3>
+                <form action="/module_rent_place/admin/configure/{{ id }}/" method="post">
+                    {% csrf_token %}
+
+                    {{ update_form.as_p }}
+
+                    <input type="submit" name="info_form" value="Submit" />
+                </form>
+            </div>
+            <div id="images" class="tab-pane fade">
+                <h3>Gérer les images</h3>
+                <form action="/module_rent_place/admin/configure/{{ id }}/" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    {{ meta_image_form.as_p }}
+
+                    <input type="submit" name="image_form" value="Submit" />
+                </form>
+            </div>
+            <div id="add" class="tab-pane fade">
+                <h3>Ajouter une option</h3>
+                <form action="/module_rent_place/admin/configure/{{ id }}/" method="post">
+                    {% csrf_token %}
+                    {{ meta_option_form.as_p }}
+
+                    <input type="submit" name="add_option_form" value="Submit" />
+                </form>
+            </div>
+            <div id="update" class="tab-pane fade">
+
+                <h3>Modifier une option</h3>
+                <form action="/module_rent_place/admin/configure/{{ id }}/" method="post">
+                    {% for o in list_options %}
+                        {{ o.display_name }} <a href="/module_rent_place/admin/update_option/{{ o.id }}">modifier</a> <a href="/api/delete_meta_rent_module/{{ o.id }}">Supprimer</a> <br>
+                    {% endfor %}
+
+                    <input type="submit" name="update_form" value="Submit" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

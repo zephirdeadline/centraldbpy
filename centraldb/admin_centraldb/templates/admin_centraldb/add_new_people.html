@@ -1,0 +1,13 @@
+{% extends "admin_centraldb/base_admin.html" %}
+
+{% block content_admin %}
+    <div class="well well-lg">
+        <div style="text-align: right; margin: auto; display: table; padding: 20px">
+            <form action="/admin/add_new_people/" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Enregistrer" />
+            </form>
+        </div>
+    </div>
+{% endblock %}
